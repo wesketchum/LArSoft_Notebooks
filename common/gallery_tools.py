@@ -9,6 +9,7 @@ import ROOT.art as art
 import ROOT.gallery as gallery
 import ROOT.simb as simb
 import ROOT.raw as raw
+from array import array
 
 # In[2]:
 
