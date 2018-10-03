@@ -13,7 +13,7 @@ from gallery_tools import *
 # In[2]:
 
 
-outfile = ROOT.TFile("/Users/wketchum/MicroBooNE_Data/genie_studies/genie_uboone_100k_simple.root", "RECREATE")
+outfile = ROOT.TFile("/uboone/data/users/wketchum/genie_uboone_1M_simple.root", "RECREATE")
 
 
 # In[3]:
@@ -201,8 +201,12 @@ def fill_event_info(ev):
 
 
 mctruths_tag = art.InputTag("generator");
-filename = "/Users/wketchum/MicroBooNE_Data/genie_studies/genie_uboone_100k.root"
-filenames = ROOT.vector(ROOT.string)(1,filename)
+#filename = "/Users/wketchum/MicroBooNE_Data/genie_studies/genie_uboone_100k.root"
+
+filenames = ROOT.vector(ROOT.string)()
+for line in open("filelist.txt"):
+    filenames.push_back(line.strip())
+
 ev = gallery.Event(filenames)
 
 get_mctruths = ev.getValidHandle(ROOT.vector(simb.MCTruth))
