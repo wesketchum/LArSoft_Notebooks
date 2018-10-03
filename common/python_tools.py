@@ -18,7 +18,11 @@ plt.rc('image', cmap='seismic')
 
 def make_profile_bins(df,lowbin,hibin,nbins,xarg,yarg,option='sem'):
     xbins = np.linspace(lowbin,hibin,nbins+1)
-    result = (df[[xarg,yarg]].groupby(np.digitize(df[xarg],bins=xbins)))[yarg].agg(['mean',option])
+    diff = (xbins[1]-xbins[0])*0.00001
+    xbins[-1] = xbins[-1]+diff
+    result = (df[[xarg,yarg]].groupby(np.digitize(df[xarg],bins=xbins,right=False)))[yarg].agg(['mean',option])
+    result = result.reindex(range(1,len(xbins),1))
+    xbins[-1] = xbins[-1]-diff
     result["x"] = 0.5*(xbins[:-1]+xbins[1:])
     result["xerr"] = 0.5*(xbins[1]-xbins[0])
     result.rename(columns={'mean': 'y', option: 'yerr'}, inplace=True)
