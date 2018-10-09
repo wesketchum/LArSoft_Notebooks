@@ -9,8 +9,12 @@ import matplotlib.pyplot as plt
 from math import *
 import scipy as sp
 import scipy.stats
-import numba
 
+try:
+    import numba
+except:
+    print "Cannot find numba. Don't use numba here!"
+    
 #matplotlib options
 plt.rc('font', family='serif', size=12)
 pltops_hist = { "histtype":'step', "linewidth":1.5}
