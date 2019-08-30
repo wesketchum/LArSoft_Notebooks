@@ -5,3 +5,5 @@
 #include "lardataobj/RecoBase/PFParticle.h"
 
 #include "lardataobj/RawData/OpDetWaveform.h"
+
+#include "lardataobj/Simulation/SimEnergyDeposit.h"
