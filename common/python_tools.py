@@ -11,6 +11,11 @@ import scipy as sp
 import scipy.stats
 import glob
 
+import dask
+from dask import config
+import dask.dataframe as dd
+import dask.array as da
+
 try:
     import numba
 except:

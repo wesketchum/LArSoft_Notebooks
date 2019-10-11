@@ -7,3 +7,6 @@
 #include "canvas/Persistency/Common/FindManyP.h"
 #include "canvas/Persistency/Common/FindOneP.h"
 #include "canvas/Persistency/Common/Assns.h"
+
+#include "canvas/Persistency/Common/TriggerResults.h"
+

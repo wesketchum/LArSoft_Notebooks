@@ -5,8 +5,8 @@
 
 
 import ROOT
-#import ROOT.art as art
-#import ROOT.gallery as gallery
+import ROOT.art as art
+import ROOT.gallery as gallery
 #import ROOT.simb as simb
 #import ROOT.raw as raw
 from array import array
@@ -31,6 +31,7 @@ provide_get_valid_handle('std::vector<simb::MCTruth>')
 provide_get_valid_handle('std::vector<raw::OpDetWaveform>')
 provide_get_valid_handle('std::vector<sim::MCTrack>')
 provide_get_valid_handle('std::vector<sim::SimChannel>')
+provide_get_valid_handle('art::TriggerResults')
 
 print "Imported gallery_tools"
 
